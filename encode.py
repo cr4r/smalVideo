@@ -1,6 +1,6 @@
 import os, subprocess
 
-mediaa='video/'
+mediaa='video'
 
 for subdirs, dirs, files in os.walk(mediaa):
     for file in files:
@@ -10,4 +10,4 @@ for subdirs, dirs, files in os.walk(mediaa):
                 os.makedirs(subdirs+ '/compressed')
         mediain = subdirs +'/'+ file
         mediaout = subdirs +'/compressed/'+file
-        subprocess.run('ffmpeg -i '+ mediain.replace(" ","\\ ") +' -vcodec libx264 -crf 22 ' + mediaout.replace(" ","\\ "), shell=True)
+        subprocess.run('ffmpeg -i '+ mediain.replace(" ","\\ ") +' -vcodec h264 -acodec mp3 -crf 22 ' + mediaout.replace(" ","\\ "), shell=True)
